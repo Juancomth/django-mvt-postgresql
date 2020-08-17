@@ -1,4 +1,0 @@
-python-dotenv
-Django==3.0.8
-psycopg2
-Pillow

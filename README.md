@@ -1,7 +1,7 @@
 # MVT PYTHON DJANGO
 
 - Create a virtualenv
-- Run command: pip install -r components.txt
+- Run command: pip install -r requirements.txt
 - Create a virtual environment with your data '.env'
     - DJANGO_SETTINGS_MODULE
     - NAME

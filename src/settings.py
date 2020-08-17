@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +27,7 @@ SECRET_KEY = '(&=qifn*!+fp2j5w82+3xwf(3ytfdr05730rv416j4xj5te=bu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,17 +77,20 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('ENGINE'),
-        'NAME': os.getenv('NAME'),
-        'HOST':os.getenv('HOST'),
-        'PORT':os.getenv('PORT'),
-        'USER': os.getenv('USER'),
-        'PASSWORD':os.getenv('PASSWORD')
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('ENGINE'),
+#         'NAME': os.getenv('NAME'),
+#         'HOST':os.getenv('HOST'),
+#         'PORT':os.getenv('PORT'),
+#         'USER': os.getenv('USER'),
+#         'PASSWORD':os.getenv('PASSWORD')
+#     }
+# }
 
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -131,3 +136,5 @@ MEDIA_ROOT = 'media'
 
 LOGIN_URL = '/login'
 LOGOUT_REDIRECT_URL = '/login'
+
+django_heroku.settings(locals())
