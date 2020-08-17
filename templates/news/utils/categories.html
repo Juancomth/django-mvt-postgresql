@@ -1,0 +1,22 @@
+<div class="card my-4">
+    <h5 class="card-header">Categorias</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                    {% for category in categories %}
+                        <li>
+                            <a href="{% url 'news:category-detail' category.name %}"
+                                style="text-decoration: none;">{{ category.name }}</a>
+                        </li>
+                    {% empty %}
+                        <li>
+                            <a style="text-decoration: none;"
+                                href="javascript:void(0)">Sin Categorias</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
