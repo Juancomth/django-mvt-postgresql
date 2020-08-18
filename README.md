@@ -13,3 +13,5 @@
 - Run command: python manage.py migrate
 - Create super user
 - Run command: python manage.py runserver
+- link to appreciate my project 
+    - https://evening-atoll-50142.herokuapp.com/ 
